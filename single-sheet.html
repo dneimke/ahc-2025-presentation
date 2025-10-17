@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hockey Club Presentation Speech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4f46e5;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+    <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-slate-900">Season Review</h4>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4 flex-nowrap">
+                        <a href="#opener"
+                            class="nav-link whitespace-nowrap text-slate-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Opener</a>
+                        <a href="#season-culture"
+                            class="nav-link whitespace-nowrap text-slate-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Season
+                            &amp; Culture</a>
+                        <a href="#thanks"
+                            class="nav-link whitespace-nowrap text-slate-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Acknowledgements</a>
+                        <a href="#conclusion"
+                            class="nav-link whitespace-nowrap text-slate-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Conclusion</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+
+        <div class="space-y-10">
+
+            <section id="opener"
+                class="bg-white p-6 md:p-8 rounded-xl shadow-lg transition-all hover:shadow-2xl hover:scale-[1.01]">
+                <h2 class="text-2xl font-bold text-indigo-700 mb-4">Team Spirit</h2>
+                <p class="text-sm italic text-slate-500 mb-4">Timing hint: 60–80 seconds</p>
+                <p class="text-slate-600 mb-6">Grab the audience's attention immediately, setting a tone of
+                    resilience, unity, and club spirit right from the start.</p>
+                <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-r-lg space-y-6">
+                    <div>
+                        <p class="font-semibold text-slate-800">Opening Cue:</p>
+                        <p class="mt-2 text-slate-700">Talk about <strong>Shaun ‘Dawso’ Dawson</strong> dislocating his
+                            shoulder in the <strong>First Final</strong>.</p>
+                        <ul class="list-disc list-inside mt-4 space-y-2 text-slate-600">
+                            <li>Describe the scene on the field (what it
+                                looked like).</li>
+                            <li>The key moment: Lying on the ground, still
+                                <strong>singing the club song</strong> before the ambulance. (Heartfelt and funny
+                                detail).
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-slate-800">Resilience Cue:</p>
+                        <p class="mt-2 text-slate-700">Share how <strong>Eddie</strong> played through finals with an
+                            injury that should have kept him out—he didn't just play, he <strong>doubled up</strong> and
+                            then won <strong>player of the final!</strong></p>
+                        <p class="mt-4 text-slate-700">Highlight <strong>Hildo</strong> managing hamstring issues—he
+                            played a key role at training, provided valuable feedback, and stepped up as assistant coach
+                            when unable to play.</p>
+                        <p class="mt-4 text-slate-700">Mention <strong>Macca</strong> managing soft tissue injuries,
+                            making tough calls about when he needed to be on the pitch versus when to focus on recovery.
+                        </p>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-slate-800">Character Cue:</p>
+                        <p class="mt-2 text-slate-700">Highlight <strong>Hildo vs Haynes</strong> as our "hype man"
+                            role—always bringing energy and lifting the group before big moments.</p>
+                        <p class="mt-2 text-slate-700">Talk about <strong>Orlando</strong> and
+                            <strong>Ollie</strong> — two key players all year. After a tough conversation on the night
+                            of
+                            the final training, they learned they wouldn't get the opportunity to play in the final.
+                            Both took it with incredible maturity and sat on the bench during the final, supporting and
+                            experiencing it with the team. Amazing humans, great talent.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!-- season section removed: content merged into #season-culture -->
+
+            <section id="season-culture"
+                class="bg-white p-6 md:p-8 rounded-xl shadow-lg transition-all hover:shadow-2xl hover:scale-[1.01]">
+                <h2 class="text-2xl font-bold text-teal-700 mb-4">Season &amp; Culture (Unity and Belief)
+                </h2>
+                <p class="text-sm italic text-slate-500 mb-4">Timing hint: 2.5–3 minutes</p>
+                <p class="text-slate-600 mb-6">This combined section highlights how the team’s unity and belief drove
+                    them through challenges and how the club culture, lessons and leadership turned that into success.
+                </p>
+
+                <div class="grid lg:grid-cols-2 gap-6">
+                    <div class="bg-teal-50 border-l-4 border-teal-500 p-4 rounded-r-lg">
+                        <p class="font-semibold text-slate-800">Unity &amp; Growth: "We were stronger together" —
+                            "We learned to dig deep..."</p>
+                        <ul class="list-disc list-inside mt-4 space-y-3 text-slate-600">
+                            <li>
+                                <strong>Unity</strong>: Every player, whether on the field or supporting from the
+                                sidelines, contributed to the team’s spirit. Moments of teamwork where players lifted
+                                each other and pushed through adversity as one group.
+                            </li>
+                            <li>
+                                <strong>Growth</strong>: Share a moment where the team had to <strong>rally
+                                    together</strong> (mental resilience):
+                                <ul class="list-circle list-inside ml-5 text-sm space-y-1 mt-1">
+                                    <li>2 of our 3 losses were consecutive against top two teams</li>
+                                    <li>Scored 3 second half goals against Port</li>
+                                    <li>Took that momentum into the North East game (still many players out)</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Personal Sacrifices</strong>: <strong>Macca</strong> from airport to North East;
+                                players <strong>doubling up</strong> and managing significant injuries.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
+                        <p class="font-semibold text-slate-800">Belief: "We always believed in each other"</p>
+                        <p class="mt-2 text-slate-700">This success is built on the belief instilled by <strong>Gouldy's
+                                leadership</strong> last year.</p>
+                        <ul class="list-disc list-inside mt-4 space-y-2 text-slate-600">
+
+                            <li><strong>Adversity Cue</strong>: "We faced challenges head-on." Remember to mention
+                                <strong>injuries</strong> and how the team handled <strong>tough opponents</strong>.
+                            </li>
+                            <li>
+                                <strong>Tough games (specific examples):</strong>
+                                <ul class="list-decimal list-inside ml-5 text-sm space-y-1 mt-1 text-slate-600">
+                                    <li>Woodville — come back to draw 3-3 (last few minutes goal)</li>
+                                    <li>Burnside — 5-4 (last minute goal)</li>
+                                    <li>Seacliff — 5-5 (last second goal)</li>
+                                    <li>Burnside — 0-1 (last 2 minute goal to go to extra time)</li>
+                                    <li>Port GF — 0-2 4 minutes before half time (final score 4-2)</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Unshakeable Belief</strong>: Even when we looked down and out in so many games,
+                                there was always this underlying feeling among players and supporters that we'd find a
+                                way through. That quiet confidence—shared in conversations and moments on the field—kept
+                                us pushing, no matter the odds.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- culture section removed: content merged into #season-culture -->
+
+            <section id="thanks"
+                class="bg-white p-6 md:p-8 rounded-xl shadow-lg transition-all hover:shadow-2xl hover:scale-[1.01]">
+                <h2 class="text-2xl font-bold text-sky-700 mb-4">Acknowledgements</h2>
+                <p class="text-sm italic text-slate-500 mb-4">Timing hint: 40–60 seconds</p>
+                <p class="text-slate-600 mb-6">A crucial part of the speech dedicated to delivering specific, important
+                    thanks to the wider club community, staff, and management who made huge sacrifices and provided
+                    unwavering support.</p>
+                <div class="space-y-6">
+                    <div class="bg-sky-50 border-l-4 border-sky-500 p-4 rounded-r-lg">
+                        <h3 class="font-semibold text-slate-800 mb-2">Club Support & Key Contributors</h3>
+                        <ul class="list-disc list-inside mt-4 space-y-3 text-slate-600">
+                            <li>
+                                <strong>Metro 5 Men's (The Phabs) Cue:</strong> Thank them for their <span
+                                    class="font-semibold">unwavering support</span>, mentioning the <span
+                                    class="font-semibold">BBQs</span> and their presence at the final <span
+                                    class="font-semibold">Thursday night sessions</span>.
+                            </li>
+                            <li>
+                                <strong>Premier League Men's Cue:</strong> Thank them for their support <span
+                                    class="font-semibold">through the finals</span>, acknowledging them training with
+                                and <span class="font-semibold">pushing us</span> to the end.
+                            </li>
+                            <li>
+                                <strong>Metro Two Men's Cue:</strong> Thank <span class="font-semibold">Mike ‘Chook’
+                                    Angley</span> and his team, acknowledging the disruption to their team and
+                                mentioning <span class="font-semibold">Gobbo</span> who stepped up (playing and
+                                supporting from off-field).
+                            </li>
+                            <li>
+                                <strong>Rich Tyrer:</strong> Acknowledge his role in <span
+                                    class="font-semibold">selections</span> and our journey across the entire year (in
+                                addition to coaching the M4M).
+                            </li>
+                            <li>
+                                <strong>Stephen ‘Vausey’ Vause (Special Thank You):</strong> We simply couldn't have
+                                done it without Steve and his dedication and unwavering support.
+                                <ul class="list-circle list-inside ml-5 text-sm space-y-1 mt-1">
+                                    <li>Mention his <span class="font-semibold">incredible dedication</span>, attending
+                                        every training.</li>
+                                    <li>Highlight the <span class="font-semibold">behind-the-scenes connection</span>:
+                                        <span class="font-semibold">Shared a drink after every game</span> (win, lose or
+                                        draw) for reflection.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="conclusion"
+                class="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center transition-all hover:shadow-2xl hover:scale-[1.01]">
+                <h2 class="text-2xl font-bold text-rose-700 mb-4">Conclusion</h2>
+                <p class="text-sm italic text-slate-500 mb-4">Timing hint: 20–30 seconds</p>
+                <p class="text-slate-600 mb-6 max-w-xl mx-auto">The final, powerful message to drive home the ultimate
+                    achievement and leave the audience with a profound sense of shared success and pride.</p>
+                <div class="bg-rose-50 border-t-4 border-b-4 border-rose-500 py-6 px-4 rounded-lg">
+                    <p class="font-semibold text-slate-800 text-lg">Final Statement Cue:</p>
+                    <p class="mt-2 text-slate-700 text-xl italic">"The win is a testament not only to the hard work and
+                        dedication of everyone here, but to the bonds and personal connections we forged and
+                        reinforced along the way."</p>
+                    <ul class="list-none mt-4 space-y-2 text-slate-600">
+                        <li>Reiterate the team's achievements and what made them champions.</li>
+                        <li>End with a **strong, memorable statement** (e.g., "And that's what made us champions.")</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-slate-800 text-white mt-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-sm">
+            <p>&copy; 2025 Hockey Club Awards Night. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Appendix / Speaker Notes (improved layout) -->
+    <section id="appendix" class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <div class="flex items-start justify-between">
+                <h3 class="text-lg font-bold mb-3">Appendix — Speaker Notes & 5–6 Minute Plan</h3>
+                <div class="text-sm text-slate-500">Estimated talk: <strong>5–6 minutes</strong></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-4 mt-4">
+                <div>
+                    <h4 class="font-semibold">Timings</h4>
+                    <dl class="text-sm text-slate-700 mt-2 space-y-2">
+                        <div>
+                            <dt class="font-medium inline">Opener:</dt>
+                            <dd class="inline">60–80s</dd>
+                        </div>
+                        <div>
+                            <dt class="font-medium inline">Season & Culture:</dt>
+                            <dd class="inline">2.5–3m</dd>
+                        </div>
+                        <div>
+                            <dt class="font-medium inline">Acknowledgements:</dt>
+                            <dd class="inline">40–60s</dd>
+                        </div>
+                        <div>
+                            <dt class="font-medium inline">Conclusion:</dt>
+                            <dd class="inline">20–30s</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="font-semibold">High-level flow</h4>
+                    <ul class="text-sm text-slate-700 mt-2 list-disc list-inside">
+                        <li>Hook with a short, vivid story (Shaun ‘Dawso’ moment).</li>
+                        <li>Main body: two compact blocks — Unity/Growth, then Belief/Gouldy.</li>
+                        <li>Focused thanks (3 items) and a tight, strong closer.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <details class="mt-4 p-3 bg-white rounded border">
+                <summary class="cursor-pointer font-medium">Full timed script & delivery tips (expand)</summary>
+                <div class="mt-3 prose max-w-none text-slate-800">
+                    <h5>Script (5:30 target)</h5>
+                    <p><strong>Opener (0:00–0:55)</strong><br>
+                        "I want to start with Shaun ‘Dawso’ Dawson — who dislocated his shoulder in the first final…and
+                        sang the club song while waiting for the ambulance. That sums up the character of this group."
+                    </p>
+
+                    <p><strong>Unity & Growth (0:55–2:30)</strong><br>
+                        "We were stronger together. We learned to dig deep. After two tough losses we came back, scored
+                        three second-half goals against Port, and pushed through despite injuries and sacrifices like
+                        Macca’s airport run."</p>
+
+                    <p><strong>Belief & Gouldy (2:30–4:20)</strong><br>
+                        "We always believed in each other. We faced challenges head-on — grit in games like Woodville
+                        (3-3 comeback) and that last-minute Burnside win. And it’s the leadership, people like Gouldy,
+                        that built that belief and kept showing up."</p>
+
+                    <p><strong>Acknowledgements (4:20–5:10)</strong><br>
+                        "Thank you to the Phabs and the club supporters, to Chook and the staff who stepped up. We
+                        simply couldn't have done it without Steve and his dedication and unwavering support."</p>
+
+                    <p><strong>Conclusion (5:10–5:30)</strong><br>
+                        "This win belongs to everyone here — those who sacrificed, believed, and showed up. It also
+                        celebrates the bonds and personal connections we forged and reinforced together. Let’s
+                        celebrate them."</p>
+
+                    <h5>Delivery tips</h5>
+                    <ul>
+                        <li>Pace: aim for ~140–160 words/min. Pause 1–2s after key lines.</li>
+                        <li>Use contrast: quieter setup, louder payoff.</li>
+                        <li>Eye contact and gestures: point to groups when thanking them.</li>
+                        <li>Rehearse with the timer and cut one example if over time.</li>
+                    </ul>
+
+                    <h5>Quick cuts (if you need to shorten)</h5>
+                    <ul>
+                        <li>Drop one game example.</li>
+                        <li>Shrink acknowledgements to 2 items.</li>
+                        <li>Trim the opener by removing one sub-example.</li>
+                    </ul>
+                </div>
+            </details>
+
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+            const sections = document.querySelectorAll('main section[id]');
+            const header = document.getElementById('header');
+
+            let observer;
+
+            function createObserver() {
+                const headerHeight = header ? header.offsetHeight : 0;
+                const options = {
+                    root: null,
+                    // offset observer by header height so sections under the sticky header count correctly
+                    rootMargin: `-${headerHeight}px 0px 0px 0px`,
+                    // multiple thresholds to get smooth intersectionRatio values
+                    threshold: [0, 0.25, 0.5, 0.75, 1]
+                };
+
+                if (observer) observer.disconnect();
+
+                // map to store latest intersectionRatio for each section
+                const visibility = {};
+                sections.forEach(s => visibility[s.id] = 0);
+
+                observer = new IntersectionObserver((entries) => {
+                    // update visibility ratios
+                    entries.forEach(entry => {
+                        visibility[entry.target.id] = entry.intersectionRatio;
+                    });
+
+                    // choose the section with the largest visible area
+                    let maxId = null;
+                    let maxRatio = -1;
+                    for (const id in visibility) {
+                        if (visibility[id] > maxRatio) {
+                            maxRatio = visibility[id];
+                            maxId = id;
+                        }
+                    }
+
+                    if (maxId) {
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('href').substring(1) === maxId);
+                        });
+                    }
+                }, options);
+
+                sections.forEach(section => observer.observe(section));
+            }
+
+            createObserver();
+
+            // Recreate observer on resize (header size may change)
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => createObserver(), 150);
+            });
+
+            // Smooth-scroll with offset when clicking nav links and set active immediately
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (!href || !href.startsWith('#')) return;
+                    const target = document.querySelector(href);
+                    if (!target) return;
+                    e.preventDefault();
+                    const headerHeight = header ? header.offsetHeight : 0;
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 8;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                });
+            });
+
+            // If page loads with a hash, jump to it with offset
+            if (location.hash) {
+                const target = document.querySelector(location.hash);
+                if (target) {
+                    setTimeout(() => {
+                        const headerHeight = header ? header.offsetHeight : 0;
+                        const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 8;
+                        window.scrollTo({ top });
+                    }, 0);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

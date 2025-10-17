@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hockey Speech Practice Slides</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Warm Neutral Harmony (Indigo, Amber, Teal, Slate) -->
+    <!-- Application Structure Plan: A single-view, card-based structure (Carousel/Slide Deck). Only one card (slide) is visible at a time, making it ideal for mobile navigation (Next/Back buttons). This structure was chosen to force focus on one talking point at a time, which is essential for practicing pacing and memorization for a speech. -->
+    <!-- Visualization & Content Choices: Report Info: Speech outline/flashcards. -> Goal: Rehearsal and Pacing. -> Viz/Presentation Method: Full-screen, centered text cards (HTML/Tailwind). -> Interaction: JavaScript-controlled Next/Back buttons to navigate the cards. -> Justification: Mimics a traditional presentation clicker/notes card, which is the optimal UX for practicing a sequential talk. NO CHARTS NEEDED. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .slide-container {
+            min-height: calc(100vh - 8rem);
+        }
+
+        .slide {
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .text-shadow-custom {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="fixed top-0 left-0 w-full bg-white shadow-md z-10">
+        <div class="container mx-auto px-4 py-3">
+            <h1 class="text-xl font-bold text-slate-900">Presentation Practice</h1>
+            <p class="text-sm text-slate-500" id="slide-tracker">Slide 1 of 6</p>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-4 py-20 flex flex-col justify-center slide-container">
+
+        <div id="slide-content"
+            class="slide bg-white p-6 md:p-10 rounded-xl shadow-2xl w-full max-w-2xl mx-auto text-center">
+            <!-- Content will be injected here by JavaScript -->
+        </div>
+
+    </main>
+
+    <div class="fixed bottom-0 left-0 w-full bg-white shadow-md z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between space-x-4">
+            <button id="prev-btn"
+                class="flex-1 bg-slate-300 text-slate-700 font-semibold py-3 px-4 rounded-xl transition-colors hover:bg-slate-400 disabled:opacity-50"
+                disabled>
+                &larr; Back
+            </button>
+            <button id="next-btn"
+                class="flex-1 bg-indigo-600 text-white font-semibold py-3 px-4 rounded-xl transition-colors hover:bg-indigo-700 disabled:opacity-50">
+                Next &rarr;
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const slides = [
+            {
+                title: "Card 1: The Opener",
+                theme: "Team Spirit Anecdote",
+                color: "indigo",
+                content: `
+                    <p class="text-2xl font-bold mb-4 text-indigo-700">The Story Cue</p>
+                    <p class="text-lg font-semibold text-slate-800">Mention **Shaun ‘Dawso’ Dawson** dislocating his shoulder in the **First Final**.</p>
+                    <ul class="mt-4 list-disc list-inside text-left mx-auto max-w-sm space-y-2 text-slate-600">
+                        <li>Describe the scene on the field.</li>
+                        <li>The key moment: Lying on the ground, still **singing the club song** before the ambulance.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Card 2: The Season",
+                theme: "Adversity & Unity",
+                color: "teal",
+                content: `
+                    <p class="text-2xl font-bold mb-4 text-teal-700">Adversity Cue: "We faced challenges head-on."</p>
+                    <ul class="list-disc list-inside text-left mx-auto max-w-sm space-y-2 text-slate-700">
+                        <li>Mention injuries and handling tough opponents.</li>
+                        <li><span class="font-medium">Tough Games:</span> Woodville 3-3, Burnside 5-4, Seacliff 5-5, Burnside 1-1 (ET).</li>
+                    </ul>
+                    <hr class="my-4 border-teal-200">
+                    <p class="text-xl font-bold mb-2 text-teal-700">Unity Cue: "Every single player stepped up."</p>
+                    <ul class="list-disc list-inside text-left mx-auto max-w-sm space-y-2 text-slate-700">
+                        <li>Support from the sidelines (players and non-playing roles).</li>
+                        <li>Highlight a specific play where **teamwork was crucial**.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Card 3: The Culture",
+                theme: "Lessons Learned & Turning Point",
+                color: "amber",
+                content: `
+                    <p class="text-2xl font-bold mb-4 text-amber-700">Growth Cue: "We learned to dig deep..."</p>
+                    <ul class="list-disc list-inside text-left mx-auto max-w-sm space-y-2 text-slate-700">
+                        <li>Rallying: Scored 3 second half goals against Port after back-to-back losses.</li>
+                        <li>Personal Sacrifices: **Macca** (airport to North East), players **doubling up** with injuries.</li>
+                    </ul>
+                    <hr class="my-4 border-amber-200">
+                    <p class="text-xl font-bold mb-2 text-amber-700">Gouldy Cue (Belief)</p>
+                    <ul class="list-disc list-inside text-left mx-auto max-w-sm space-y-2 text-slate-700">
+                        <li>Success built on **Gouldy's leadership** last year.</li>
+                        <li>Instilled belief and trust that you’ll keep coming back.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Card 4 & 5: Acknowledgements",
+                theme: "Club & Key Contributors",
+                color: "sky",
+                content: `
+                    <p class="text-2xl font-bold mb-4 text-sky-700">Acknowledgements (Card 4: Club)</p>
+                    <ul class="list-disc list-inside text-left mx-auto max-w-sm space-y-2 text-slate-700">
+                        <li>Metro 5 Men's (The Phabs): **BBQs** and presence at Thursday sessions.</li>
+                        <li>Premier League Men: Support **through the finals**, pushing us in training.</li>
+                    </ul>
+                    <hr class="my-4 border-sky-200">
+                    <p class="text-xl font-bold mb-2 text-sky-700">Key Staff (Card 5)</p>
+                    <ul class="list-disc list-inside text-left mx-auto max-w-sm space-y-2 text-slate-700">
+                        <li>Metro Two Men's: **Mike ‘Chook’ Angley** and team (especially **Gobbo**). Acknowledge disruption/player movement.</li>
+                        <li>**Rich Tyrer**: Selections and journey support.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Card 5 (Cont.): Manager",
+                theme: "Heartfelt Thanks to Stephen Voss",
+                color: "purple",
+                content: `
+                    <p class="text-2xl font-bold mb-4 text-purple-700">Special Thank You: **Stephen ‘Vausey’ Vause**</p>
+                    <ul class="list-disc list-inside text-left mx-auto max-w-sm space-y-2 text-slate-700">
+                        <li>Heartfelt thank you for **incredible dedication** (attended every training).</li>
+                        <li>Behind-the-scenes connection: **Shared a drink after every game** for reflection.</li>
+                        <li>Enjoyed working with him and getting to know his family.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Card 6: Conclusion",
+                theme: "Final Statement",
+                color: "rose",
+                content: `
+                    <p class="text-2xl font-bold mb-4 text-rose-700">Final Statement Cue</p>
+                    <p class="text-3xl italic font-extrabold text-slate-900 text-shadow-custom">"The win is a testament to the hard work and dedication of everyone here."</p>
+                    <hr class="my-6 border-rose-300">
+                    <p class="text-xl font-medium text-slate-700">End with a strong, memorable statement: **"And that's what made us champions."**</p>
+                `
+            }
+        ];
+
+        let currentSlide = 0;
+        const slideContentEl = document.getElementById('slide-content');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const trackerEl = document.getElementById('slide-tracker');
+        const totalSlides = slides.length;
+
+        function updateSlide() {
+            const slide = slides[currentSlide];
+
+            // Fade out
+            slideContentEl.style.opacity = '0';
+
+            setTimeout(() => {
+                // Apply color classes
+                slideContentEl.className = 'slide p-6 md:p-10 rounded-xl shadow-2xl w-full max-w-2xl mx-auto text-center';
+                slideContentEl.classList.add(`bg-white`);
+
+                // Construct the inner HTML
+                slideContentEl.innerHTML = `
+                    <p class="text-sm font-semibold uppercase tracking-widest text-${slide.color}-500">${slide.title}</p>
+                    <h3 class="text-3xl font-extrabold mt-2 mb-6 text-slate-900">${slide.theme}</h3>
+                    <div class="p-4 bg-${slide.color}-50/50 rounded-lg">
+                        ${slide.content}
+                    </div>
+                `;
+
+                // Update controls and tracker
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === totalSlides - 1;
+                trackerEl.textContent = `Slide ${currentSlide + 1} of ${totalSlides}`;
+
+                // Fade in
+                slideContentEl.style.opacity = '1';
+            }, 300); // Match CSS transition duration
+        }
+
+        function navigateSlides(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            updateSlide();
+        }
+
+        prevBtn.addEventListener('click', () => navigateSlides(-1));
+        nextBtn.addEventListener('click', () => navigateSlides(1));
+
+        // Initialize the first slide
+        updateSlide();
+    </script>
+
+</body>
+
+</html>
