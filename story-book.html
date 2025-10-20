@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Championship Story Book</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Warm Neutral Harmony (Parchment, Deep Forest Green, Earthy Red, Gold accents) -->
+    <!-- Application Structure Plan: A single-view, card-based structure (Story Book Pages). Only one chapter/page is visible at a time, optimized for sequential reading and mobile navigation (Next/Back controls styled as page turners). This structure enhances the narrative flow, making the speech points feel connected like chapters in a single story. -->
+    <!-- Visualization & Content Choices: Report Info: Speech outline/flashcards. -> Goal: Narrative flow, Pacing, and Immersion. -> Viz/Presentation Method: Full-screen, parchment-styled text cards with thematic headings. -> Interaction: JavaScript-controlled Next/Back buttons for page turning. -> Justification: Creates a unique, high-engagement UX suitable for retelling a season's "story" rather than just reviewing facts. NO CHARTS NEEDED. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', serif;
+        }
+
+        .slide-container {
+            min-height: calc(100vh - 8rem);
+        }
+
+        .slide {
+            transition: opacity 0.4s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .parchment-bg {
+            background-color: #f7f3eb;
+            /* Soft parchment color */
+        }
+
+        .page-header {
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.05em;
+        }
+
+        .page-navigation {
+            background-color: #3f3f46;
+            /* Slate 700 */
+            transition: background-color 0.3s ease;
+        }
+
+        .page-navigation:hover:not(:disabled) {
+            background-color: #1f2937;
+            /* Slate 800 */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="fixed top-0 left-0 w-full bg-white shadow-md z-10">
+        <div class="container mx-auto px-4 py-3">
+            <h1 class="text-xl font-bold text-gray-900 page-header">The Championship Story</h1>
+            <p class="text-sm text-gray-500" id="slide-tracker">Chapter 1 of 6</p>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-4 py-20 flex flex-col justify-center slide-container">
+
+        <div id="slide-content" class="slide parchment-bg p-8 md:p-12 rounded-lg w-full max-w-2xl mx-auto text-center">
+            <!-- Content will be injected here by JavaScript -->
+        </div>
+
+    </main>
+
+    <div class="fixed bottom-0 left-0 w-full bg-white shadow-md z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between space-x-4">
+            <button id="prev-btn"
+                class="flex-1 page-navigation text-white font-semibold py-3 px-4 rounded-xl transition-colors disabled:opacity-30 disabled:hover:bg-slate-700"
+                disabled>
+                &larr; Previous Page
+            </button>
+            <button id="next-btn"
+                class="flex-1 page-navigation text-white font-semibold py-3 px-4 rounded-xl transition-colors disabled:opacity-30 disabled:hover:bg-slate-700">
+                Next Page &rarr;
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const slides = [
+            {
+                title: "Chapter 1: The First Injury",
+                theme: "The Anecdote of Steel",
+                color: "indigo",
+                content: `
+                    <p class="text-2xl font-bold mb-4 text-indigo-800 page-header">The Turning Point of Spirit</p>
+                    <p class="text-xl font-semibold text-gray-800 leading-relaxed">Our story began not with a win, but with a moment of ultimate commitment from **Shaun ‘Dawso’ Dawson** in the **First Final**.</p>
+                    <div class="mt-6 text-left mx-auto max-w-sm space-y-3 text-gray-700 border-l-2 border-indigo-300 pl-4">
+                        <p>Describe the scene on the field—it was tough.</p>
+                        <p class="font-bold text-gray-800">The crucial detail: Even with a dislocated shoulder, lying on the ground, he was still **singing the club song** before the ambulance arrived.</p>
+                    </div>
+                `
+            },
+            {
+                title: "Chapter 2: The Battle Lines",
+                theme: "Facing Adversity and Finding Unity",
+                color: "teal",
+                content: `
+                    <p class="text-2xl font-bold mb-4 text-teal-800 page-header">The Season's True Tests</p>
+                    <p class="text-xl font-semibold text-gray-800 mb-4">We faced challenges **head-on**—from **injuries** to incredible opposition. But in those moments, every player **stepped up**.</p>
+                    <div class="grid grid-cols-2 gap-4 mt-6 text-left text-sm">
+                        <div class="bg-white p-3 rounded-lg shadow-inner">
+                            <p class="font-bold text-teal-700 mb-1">Adversity Cues (Tough Games):</p>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                <li>Woodville come back 3-3 (last few mins goal)</li>
+                                <li>Burnside 5-4 (last minute goal)</li>
+                                <li>Seacliff 5-5 (last second goal)</li>
+                                <li>Burnside 1-1 (ET to win)</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow-inner">
+                            <p class="font-bold text-teal-700 mb-1">Unity Cues:</p>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                <li>Mention support from the sidelines/non-playing roles.</li>
+                                <li>Highlight a specific play or moment where **teamwork was crucial** for a win.</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Chapter 3: The Foundation of Belief",
+                theme: "Lessons, Sacrifice, and Gouldy's Legacy",
+                color: "amber",
+                content: `
+                    <p class="text-2xl font-bold mb-4 text-amber-800 page-header">When We Learned to Dig Deep</p>
+                    <p class="text-xl font-semibold text-gray-800 mb-4">We learned to **dig deep**—a lesson forged in fire, built upon the foundation of last year's leadership.</p>
+                    <div class="grid grid-cols-2 gap-4 mt-6 text-left text-sm">
+                        <div class="bg-white p-3 rounded-lg shadow-inner">
+                            <p class="font-bold text-amber-700 mb-1">Resilience & Sacrifice:</p>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                <li>Rallying after consecutive losses (3 second half goals vs. Port).</li>
+                                <li>**Macca's** airport dash; players **doubling up** with injuries.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow-inner">
+                            <p class="font-bold text-amber-700 mb-1">The Gouldy Culture:</p>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                <li>Success is built on **Gouldy's leadership** and the belief he instilled.</li>
+                                <li>A culture of trust and commitment that **stays with the group to the end**.</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Chapter 4: The Unseen Army",
+                theme: "Thanking the Club & Support Teams",
+                color: "sky",
+                content: `
+                    <p class="text-2xl font-bold mb-4 text-sky-800 page-header">The Pillars of Our Success</p>
+                    <p class="text-xl font-semibold text-gray-800 mb-4">We couldn't have finished this story without our extended family who supported us through the finals push.</p>
+                    <div class="space-y-4 mt-6 text-left">
+                        <div class="bg-sky-50 p-3 rounded-lg border-l-4 border-sky-400">
+                            <p class="font-bold text-sky-700">Metro 5 Men's (The Phabs) & Premier League Men:</p>
+                            <p class="text-sm text-gray-700 mt-1">Thank the Phabs for the **BBQs** and presence at training. Thank the PLM for **pushing us in training** right through the finals, even after their season ended.</p>
+                        </div>
+                        <div class="bg-sky-50 p-3 rounded-lg border-l-4 border-sky-400">
+                            <p class="font-bold text-sky-700">Metro Two Men's Team:</p>
+                            <p class="text-sm text-gray-700 mt-1">Thank **Mike ‘Chook’ Angley** and his team. Acknowledge the disruption/cost to their team. Special mention to players like **Gobbo** who stepped up.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Chapter 5: The Partnership",
+                theme: "Key Staff & The Heartfelt Thank You",
+                color: "purple",
+                content: `
+                    <p class="text-2xl font-bold mb-4 text-purple-800 page-header">My Manager, My Mate</p>
+                    <p class="text-xl font-semibold text-gray-800 mb-4">A truly special thank you to my manager, **Stephen ‘Vausey’ Vause**.</p>
+                    <div class="mt-6 text-left mx-auto max-w-md space-y-3 text-gray-700 border-l-2 border-purple-300 pl-4">
+                        <p class="font-bold">Highlight his incredible dedication (attended every training).</p>
+                        <p>Mention our **behind-the-scenes connection**: **Shared a drink after every game** (win, lose or draw) for reflection and planning.</p>
+                        <p>Express enjoyment of working with him and getting to know his family.</p>
+                        <p class="font-bold text-purple-700 mt-3">Also acknowledge Rich Tyrer for his role in selections and the journey across the entire year.</p>
+                    </div>
+                `
+            },
+            {
+                title: "Epilogue",
+                theme: "The Final Statement",
+                color: "rose",
+                content: `
+                    <p class="text-2xl font-bold mb-4 text-rose-800 page-header">The Unwritten Future</p>
+                    <div class="py-6 px-4 bg-rose-100 rounded-lg">
+                        <p class="text-lg font-medium text-gray-700 mb-4">The final, powerful message to the room:</p>
+                        <p class="text-4xl italic font-extrabold text-gray-900 leading-snug">"The win is a testament to the hard work and dedication of everyone here."</p>
+                    </div>
+                    <p class="text-xl font-medium text-gray-700 mt-6">End with the strong, memorable statement: **"And that's what made us champions."**</p>
+                `
+            }
+        ];
+
+        let currentSlide = 0;
+        const slideContentEl = document.getElementById('slide-content');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const trackerEl = document.getElementById('slide-tracker');
+        const totalSlides = slides.length;
+
+        function updateSlide() {
+            const slide = slides[currentSlide];
+
+            // Fade out
+            slideContentEl.style.opacity = '0';
+
+            setTimeout(() => {
+                // Apply base classes
+                slideContentEl.className = 'slide parchment-bg p-8 md:p-12 rounded-lg w-full max-w-2xl mx-auto text-center';
+
+                // Construct the inner HTML
+                slideContentEl.innerHTML = `
+                    <p class="text-sm font-semibold uppercase tracking-widest text-${slide.color}-600 page-header">${slide.title}</p>
+                    <h3 class="text-3xl font-extrabold mt-2 mb-6 text-gray-900">${slide.theme}</h3>
+                    <div class="text-left">
+                        ${slide.content}
+                    </div>
+                `;
+
+                // Update controls and tracker
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === totalSlides - 1;
+                trackerEl.textContent = `Chapter ${currentSlide + 1} of ${totalSlides}`;
+
+                // Fade in
+                slideContentEl.style.opacity = '1';
+            }, 300); // Match CSS transition duration
+        }
+
+        function navigateSlides(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            updateSlide();
+        }
+
+        prevBtn.addEventListener('click', () => navigateSlides(-1));
+        nextBtn.addEventListener('click', () => navigateSlides(1));
+
+        // Initialize the first slide
+        updateSlide();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future-Proof Tech Career (Adelaide User Group)</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the slide transitions */
+        .slide-container {
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .slide-hidden {
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .slide-visible {
+            opacity: 1;
+            position: relative;
+        }
+
+        /* Set font to Inter for a clean, modern look */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117;
+            /* Dark background */
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-primary': '#4f46e5',
+                        'brand-secondary': '#1f2937',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-[#0d1117] min-h-screen flex flex-col p-4 text-white">
+
+    <div
+        class="max-w-xl w-full mx-auto flex-grow flex flex-col shadow-2xl rounded-2xl bg-brand-secondary/50 p-6 sm:p-8">
+        <!-- HEADER AND CONTEXT -->
+        <header class="mb-6 border-b border-gray-700 pb-4">
+            <h1 class="text-3xl font-bold text-brand-primary">How to Build a Future-Proof Tech Career</h1>
+            <p class="text-lg text-gray-400 mt-1">Junior Developer Adelaide User Group</p>
+        </header>
+
+        <!-- PROGRESS BAR -->
+        <div class="w-full mb-6">
+            <div id="progress-bar-fill" class="h-2 bg-brand-primary rounded-full transition-all duration-500"
+                style="width: 0%;"></div>
+            <div class="flex justify-between text-xs mt-1 text-gray-400">
+                <span id="slide-counter">Slide 1 of 5</span>
+                <span>Total Time: 7:00</span>
+            </div>
+        </div>
+
+        <!-- SLIDE CONTENT AREA -->
+        <main id="presentation-container" class="flex-grow relative overflow-hidden">
+            <!-- Slides will be injected here by JS -->
+        </main>
+
+        <!-- NAVIGATION CONTROLS -->
+        <footer class="mt-8 pt-4 border-t border-gray-700 flex justify-between space-x-4">
+            <button id="prev-btn" onclick="navigateSlide(-1)" disabled
+                class="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-4 rounded-xl shadow-lg transition duration-300 disabled:opacity-30 disabled:cursor-not-allowed">
+                &larr; Back
+            </button>
+            <button id="next-btn" onclick="navigateSlide(1)"
+                class="flex-1 bg-brand-primary hover:bg-indigo-600 text-white font-semibold py-3 px-4 rounded-xl shadow-lg transition duration-300 disabled:opacity-30 disabled:cursor-not-allowed">
+                Next &rarr;
+            </button>
+        </footer>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const totalSlides = 5;
+
+        // --- SLIDE CONTENT DATA ---
+        // The five prompt cards are structured here.
+        const slides = [
+            {
+                title: "1. The Intrapreneurial Intro: From Holiday Parks to 10x Tech",
+                time: "1:00",
+                points: [
+                    "Developer/leader at **G'day Group** (Australia's largest holiday park network). We're an unexpected tech lab!",
+                    "My job: Leading **'Accelerate,'** our high-stakes innovation team, focused on **10x** technology shifts.",
+                    "I'm a **Strategic Intrapreneur** and **Technical Validator**—I bet on the future. Your career is your biggest bet."
+                ],
+                transition: "How many of you feel a little nervous about how AI, like Copilot, will change your first job? Be honest, is using it... **cheating**?"
+            },
+            {
+                title: "2. The Professional Stance: AI is an Appetite, Not a Shortcut",
+                time: "1:30",
+                points: [
+                    "The Verdict: AI is **NOT cheating**. It's a non-negotiable professional tool, like a compiler.",
+                    "The **professional expectation** is that *you* own the output. You are the **Validator**.",
+                    "We use AI to reduce **TTO** (Time-to-Outcome), not thought time. This is key to our **Horizon 1** goal (Frictionless Foundation)."
+                ],
+                transition: "So, what does this look like in a real, Australian corporate environment? Let me pull back the curtain on G'day Group."
+            },
+            {
+                title: "3. Real-World Adoption: The G'day Group Sandbox",
+                time: "2:00",
+                points: [
+                    "Ethical Implementation: We use an **internally hosted Azure OpenAI service** to keep customer data (PII) secure.",
+                    "Pioneers use AI for *scaffolding* code for complex **Trade Acquisition** services, not the business logic.",
+                    "The New Junior Developer Skill: **Crafting the Prompt** (Context Engineering) and **Validating the Solution** against requirements."
+                ],
+                transition: "The shift is from 'What code can I write?' to 'What problem am I trying to solve?' This leads directly to the two things you *must* do starting tomorrow."
+            },
+            {
+                title: "4. Career Pivot: The Two Mandatory Shifts",
+                time: "1:40",
+                points: [
+                    "**Shift 1: Become a Domain Expert.** AI knows syntax. It doesn't know the difference between a **Retail Booking** and a **Trade Acquisition** contract. Your value is in the context.",
+                    "**Shift 2: Master Observability & Tracing.** The most important skill is validating and debugging. Learn to instrument your code (e.g., Azure App Insights).",
+                    "This mitigates the **Handoff Abyss** risk—clarity ensures successful transfer to operational teams."
+                ],
+                transition: "Finally, let's skip the vague advice. Here are 3 specific, actionable steps (Bet Cards) to put on your dev Trello board this week."
+            },
+            {
+                title: "5. The Action Plan: Three Bet Cards for Your Career",
+                time: "0:50",
+                points: [
+                    "**Bet 1 (TTO Reduction):** Use Copilot/Cursor for 30 mins/day for 30 days. Success Metric: 20% less boilerplate time.",
+                    "**Bet 2 (Risk Awareness):** Write a human-validated 'Validator Checklist' for a new component.",
+                    "**Bet 3 (Domain Context):** Interview 3 non-tech people about their biggest park pain point. **Become the Context Engineer.**"
+                ],
+                transition: "Remember, your career isn't about writing code anymore. It's about placing smart **bets** on where the real value lies. Go make your first 10x bet. Thank you."
+            }
+        ];
+        // --- END SLIDE CONTENT DATA ---
+
+
+        const container = document.getElementById('presentation-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBarFill = document.getElementById('progress-bar-fill');
+        const slideCounter = document.getElementById('slide-counter');
+
+        function createSlideHTML(slide, index) {
+            // Calculate total time elapsed for the progress bar text
+            const totalMinutes = slides.reduce((sum, s) => sum + parseFloat(s.time.replace(':', '.')), 0);
+            let timeElapsed = 0;
+            for (let i = 0; i <= index; i++) {
+                timeElapsed += parseFloat(slides[i].time.replace(':', '.'));
+            }
+
+            // Bold the bolded keywords from the original prompt cards
+            const formatPoint = (p) => {
+                let formatted = p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                return formatted;
+            };
+
+
+            return `
+                <div id="slide-${index}" class="slide-container p-4 bg-brand-secondary rounded-xl h-full shadow-inner ${index === currentSlideIndex ? 'slide-visible' : 'slide-hidden'}">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-2xl font-extrabold text-brand-primary">${slide.title}</h2>
+                        <span class="text-xl font-mono px-3 py-1 bg-gray-800 rounded-lg">${slide.time}</span>
+                    </div>
+
+                    <p class="text-lg text-gray-300 font-semibold mb-3">Key Speaking Points:</p>
+                    <ul class="list-disc ml-6 space-y-3 text-base text-gray-200">
+                        ${slide.points.map(point => `<li class="leading-relaxed">${formatPoint(point)}</li>`).join('')}
+                    </ul>
+
+                    <div class="mt-6 pt-4 border-t border-gray-700">
+                        <p class="text-sm font-semibold text-gray-400 mb-2">Audience Engagement/Transition:</p>
+                        <p class="text-base italic text-white">${formatPoint(slide.transition)}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderSlides() {
+            container.innerHTML = slides.map(createSlideHTML).join('');
+            updateUI();
+        }
+
+        function updateUI() {
+            // Update visibility
+            document.querySelectorAll('.slide-container').forEach((slideEl, index) => {
+                slideEl.classList.remove('slide-visible', 'slide-hidden');
+                slideEl.classList.add(index === currentSlideIndex ? 'slide-visible' : 'slide-hidden');
+            });
+
+            // Update buttons
+            prevBtn.disabled = currentSlideIndex === 0;
+            nextBtn.disabled = currentSlideIndex === slides.length - 1;
+
+            // Update counter
+            slideCounter.textContent = `Slide ${currentSlideIndex + 1} of ${slides.length}`;
+
+            // Update progress bar
+            const progress = ((currentSlideIndex + 1) / slides.length) * 100;
+            progressBarFill.style.width = `${progress}%`;
+        }
+
+        function navigateSlide(direction) {
+            const newIndex = currentSlideIndex + direction;
+            if (newIndex >= 0 && newIndex < slides.length) {
+                currentSlideIndex = newIndex;
+                updateUI();
+            }
+        }
+
+        // Initialize the presentation on load
+        window.onload = renderSlides;
+    </script>
+</body>
+
+</html>
