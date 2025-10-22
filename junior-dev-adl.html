@@ -63,7 +63,7 @@
             <div id="progress-bar-fill" class="h-2 bg-brand-primary rounded-full transition-all duration-500"
                 style="width: 0%;"></div>
             <div class="flex justify-between text-xs mt-1 text-gray-400">
-                <span id="slide-counter">Slide 1 of 5</span>
+                <span id="slide-counter">Slide 1 of 6</span>
                 <span>Total Time: 7:00</span>
             </div>
         </div>
@@ -88,18 +88,19 @@
 
     <script>
         let currentSlideIndex = 0;
-        const totalSlides = 5;
+        // Total slides changed from 5 to 6
+        const totalSlides = 6;
 
         // --- SLIDE CONTENT DATA ---
-        // The five prompt cards are structured here.
+        // The six prompt cards are structured here.
         const slides = [
             {
                 title: "1. The Intrapreneurial Intro: From Holiday Parks to 10x Tech",
                 time: "1:00",
                 points: [
-                    "Engineering leader at **G'day Group** (Australia's largest holiday park network). We're an unexpected tech lab!",
+                    "Developer/leader at **G'day Group** (Australia's largest holiday park network). We're an unexpected tech lab!",
                     "My job: Leading **'Accelerate,'** our high-stakes innovation team, focused on **10x** technology shifts.",
-                    "We are **Strategic Intrapreneurs** and **Technical Validators** — we bet on the future. Your career is your biggest bet."
+                    "I'm a **Strategic Intrapreneur** and **Technical Validator**—I bet on the future. Your career is your biggest bet."
                 ],
                 transition: "How many of you feel a little nervous about how AI, like Copilot, will change your first job? Be honest, is using it... **cheating**?"
             },
@@ -108,28 +109,42 @@
                 time: "1:30",
                 points: [
                     "The Verdict: AI is **NOT cheating**. It's a non-negotiable professional tool, like a compiler.",
+                    "In our 'Accelerate' methodology (Fixed-Time, Variable-Scope), an **Appetite** is the fixed, non-negotiable time (e.g., 2 weeks) invested for **Validated Learning**.",
                     "The **professional expectation** is that *you* own the output. You are the **Validator**.",
                     "We use AI to reduce **TTO** (Time-to-Outcome), not thought time. This is key to our **Horizon 1** goal (Frictionless Foundation)."
                 ],
-                transition: "So, what does this look like in a real, Australian corporate environment? Let me pull back the curtain on G'day Group."
+                transition: "To achieve a 10x outcome, we need to understand exactly where AI saves time, and where your brain adds the real value."
             },
+            // --- NEW SLIDE 2a ---
+            {
+                title: "2a. Strategic Focus: TTO vs. Thought Time",
+                time: "0:40", // New dedicated time slot
+                points: [
+                    "**TTO (Time-to-Outcome) is the Churn:** The time spent on low-value tasks like boilerplate, configuration, and syntactic debugging.",
+                    "**Thought Time is the Gold:** High-cognitive effort on domain context, validation, architecture, and solving novel problems.",
+                    "AI must drive **TTO down** so your time can be **reinvested** into Thought Time. This is how Pioneers defeat **Operational Drift**."
+                ],
+                transition: "By focusing on Thought Time, we can now look at *where* this happens: the G'day Group Sandbox."
+            },
+            // --- MODIFIED SLIDE 3 (Time reduced from 2:00 to 1:30) ---
             {
                 title: "3. Real-World Adoption: The G'day Group Sandbox",
-                time: "2:00",
+                time: "1:30", // Reduced from 2:00
                 points: [
-                    "Ethical Implementation: We use an **internally hosted OpenAI service** to keep customer data (PII) and secrets secure.",
-                    "Pioneers use AI for *scaffolding* code for complex services and codifying business logic.",
+                    "Ethical Implementation: We use an **internally hosted Azure OpenAI service** to keep customer data (PII) secure.",
+                    "Pioneers use AI for *scaffolding* code for complex **Trade Acquisition** services, not the business logic.",
                     "The New Junior Developer Skill: **Crafting the Prompt** (Context Engineering) and **Validating the Solution** against requirements."
                 ],
                 transition: "The shift is from 'What code can I write?' to 'What problem am I trying to solve?' This leads directly to the two things you *must* do starting tomorrow."
             },
+            // --- MODIFIED SLIDE 4 (Time reduced from 1:40 to 1:30) ---
             {
                 title: "4. Career Pivot: The Two Mandatory Shifts",
-                time: "1:40",
+                time: "1:30", // Reduced from 1:40
                 points: [
-                    "**Shift 1: Become a Domain Expert.** AI knows syntax. It doesn't know the difference between a **Retail Booking** and a **Trade Acquisition** contract. Your value is in the context.",
-                    "**Shift 2: Master Observability & Tracing.** The most important skill is validating and debugging. Learn to instrument your code (e.g., Azure App Insights).",
-                    "This mitigates the **Handoff Abyss** risk—clarity ensures successful transfer to operational teams."
+                    "**Shift 1: Become a Context Engineer.** Your value isn't memorizing facts; it's **asking questions** to understand the high-stakes domain (**Retail** vs. **Trade** contracts). AI knows code, *you* know the 'Why.'",
+                    "**Shift 2: Master Observability & Tracing.** Observability is knowing **why you're sick**; tracing is **following one booking** through our complex services.",
+                    "This instrumentation is your most important validation tool. It defeats the **Handoff Abyss** risk by ensuring the code you ship is trustworthy and traceable."
                 ],
                 transition: "Finally, let's skip the vague advice. Here are 3 specific, actionable steps (Bet Cards) to put on your dev Trello board this week."
             },
